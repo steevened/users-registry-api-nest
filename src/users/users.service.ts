@@ -1,15 +1,19 @@
 import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { IUser } from './interfaces/user.interface';
 
 @Injectable()
 export class UsersService {
-  create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
+  private readonly users: IUser[] = [];
+
+  create(createUserDto: CreateUserDto): void {
+    //add on the first position
+    this.users.unshift({ id: this.users.length + 1, ...createUserDto });
   }
 
-  findAll() {
-    return `This action returns all users`;
+  findAll(): IUser[] {
+    return this.users;
   }
 
   findOne(id: number) {
