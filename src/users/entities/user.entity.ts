@@ -16,7 +16,7 @@ export class User {
   lastNames: string;
 
   @Column({
-    type: 'int',
+    type: 'varchar',
     unique: true,
   })
   dniNumber: number;

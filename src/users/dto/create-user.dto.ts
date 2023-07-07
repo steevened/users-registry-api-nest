@@ -15,7 +15,8 @@ export class CreateUserDto {
   @MinLength(3)
   lastNames: string;
 
-  @IsInt()
+  @IsString()
+  @MinLength(5)
   dniNumber: number;
 
   @IsEmail()
@@ -26,7 +27,7 @@ export class CreateUserDto {
   cellphone: string;
 
   @IsString()
-  @MinLength(5)
+  @MinLength(2)
   address: string;
 
   @IsString()
